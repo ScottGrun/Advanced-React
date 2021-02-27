@@ -1,0 +1,9 @@
+import Page from '../components/Page';
+
+export default function HomePage() {
+  return (
+    <Page>
+      <p>Home Page</p>
+    </Page>
+  );
+}
