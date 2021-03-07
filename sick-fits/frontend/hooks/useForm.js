@@ -1,35 +1,46 @@
 import { useState } from 'react';
 
-export default function useForm(inital = {}) {
-  const [inputs, setInputs] = useState(inital);
+export default function useForm(initial = {}) {
+  // create a state object for our inputs
+  const [inputs, setInputs] = useState(initial);
 
-  const handleChange = (e) => {
+  // {
+  //   name: 'wes',
+  //   description: 'nice shoes',
+  //   price: 1000
+  // }
+
+  function handleChange(e) {
     let { value, name, type } = e.target;
-
-    // Overide HTML form forcing value return to be of type string
-    if (type === 'file') [value] = e.target.files;
-    if (type === 'number') value = parseInt(value);
-
-    // Key is the name of the target and value is the value
+    if (type === 'number') {
+      value = parseInt(value);
+    }
+    if (type === 'file') {
+      [value] = e.target.files;
+    }
     setInputs({
+      // copy the existing state
       ...inputs,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
-  };
+  }
 
-  const resetForm = () => {
-    setInputs(inital);
-  };
+  function resetForm() {
+    setInputs(initial);
+  }
 
-  const clearForm = () => {
-    // Nifty one liner that makes a obj an array, clears the values and then turns the array
-    // back into a object where each key's value is null
+  function clearForm() {
     const blankState = Object.fromEntries(
       Object.entries(inputs).map(([key, value]) => [key, ''])
     );
-
     setInputs(blankState);
-  };
+  }
 
-  return { inputs, handleChange, resetForm, clearForm };
+  // return the things we want to surface from this custom hook
+  return {
+    inputs,
+    handleChange,
+    resetForm,
+    clearForm,
+  };
 }
