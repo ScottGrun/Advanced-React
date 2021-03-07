@@ -5,12 +5,11 @@ import Header from './Header';
 const GlobalStyles = createGlobalStyle`
 
 @font-face {
-  font-family: 'radnika_next';
-  src: url('../public/static/radnikanext-medium-webfont.woff2');
-  format: 'woff2';
-  font-weight: normal;
-  font-style: normal;
-}
+    font-family: 'radnika_next';
+    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
 
 :root {
   --red: #ff0000;
@@ -19,11 +18,12 @@ const GlobalStyles = createGlobalStyle`
   --light-grey: #e1e1e1;
   --off-white: #ededed;
   --max-width: 1000px;
-  --box-shadow: 0 12px 23px 0 rgba(0, 0, 0, .09)
+  --bs: 0 12px 23px 0 rgba(0, 0, 0, .09)
 }
 
 html{
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 *,*:before, *:after{

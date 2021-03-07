@@ -1,5 +1,10 @@
 import React from 'react';
+import Products from '../components/Products';
 
-export default function Products() {
-  return <div />;
+export default function OrderPage() {
+  return (
+    <div>
+      <Products />
+    </div>
+  );
 }
