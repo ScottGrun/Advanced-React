@@ -7,8 +7,8 @@ export default function useForm(inital = {}) {
     let { value, name, type } = e.target;
 
     // Overide HTML form forcing value return to be of type string
+    if (type === 'file') [value] = e.target.files;
     if (type === 'number') value = parseInt(value);
-    if (type === 'file') value[0] = e.target.files;
 
     // Key is the name of the target and value is the value
     setInputs({
