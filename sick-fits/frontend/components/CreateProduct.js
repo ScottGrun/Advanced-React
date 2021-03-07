@@ -1,6 +1,13 @@
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
+
+// Hooks
 import useForm from '../hooks/useForm';
+
+// Queries
+import {ALL_PRODUCTS_QUERY} from './Products'
+
+// Styles
 import DisplayError from './ErrorMessage';
 import Form from './styles/Form';
 
@@ -32,14 +39,16 @@ const CREATE_PRODUCT_MUTATION = gql`
 export default function CreateProduct() {
   const { inputs, handleChange, clearForm, resetForm } = useForm({
     image: '',
-    name: 'Nice Shoes',
+    name: 'Nice Shoes', 
     price: 34234,
     description: 'These are the best shoes!',
   });
+  
   const [createProduct, { loading, error, data }] = useMutation(
     CREATE_PRODUCT_MUTATION,
     {
       variables: inputs,
+      refetchQueries: [{query: ALL_PRODUCTS_QUERY}]
     }
   );
   return (
