@@ -40,15 +40,14 @@ const NavStyles = styled.ul`
       width: 0;
       position: absolute;
       transform: translateX(-50%);
-      transition: width 0.4s;
-      transition-timing-function: cubic-bezier(1, -0.65, 0, 2.31);
+      transition: width 0.175s ease-in-out;
       left: 50%;
       margin-top: 2rem;
     }
     &:hover,
     &:focus {
       outline: none;
-      text-decoration:none;
+      text-decoration: none;
       &:after {
         width: calc(100% - 60px);
       }
@@ -58,7 +57,6 @@ const NavStyles = styled.ul`
     }
   }
   @media (max-width: 1300px) {
-    border-top: 1px solid var(--lightGray);
     width: 100%;
     justify-content: center;
     font-size: 1.5rem;
