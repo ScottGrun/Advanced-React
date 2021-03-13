@@ -12,7 +12,7 @@ export default function CreateProduct() {
     <Form
       onSubmit={(e) => {
         e.preventDefault();
-        console.log(inputs);
+        await CreateProduct();
       }}
     >
       <fieldset>
