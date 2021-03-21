@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import SignOut from '../../sick-fits/frontend/components/SignOut';
 import NavStyles from './styles/NavStyles';
 import { useUser } from './User';
 
